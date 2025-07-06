@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: service-register
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/service-register/**
+        - id: service-login
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/service-login/**
+
+server:
+  port: 8080
